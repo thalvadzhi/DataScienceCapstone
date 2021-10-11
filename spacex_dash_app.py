@@ -55,7 +55,9 @@ def get_pie_chart(launch_site):
         fig = px.pie(spacex_df, values='class', names='Launch Site', title='All sites launch success rates')
     else:
         filtered_df = spacex_df[spacex_df["Launch Site"] == launch_site]
-        fig = px.pie(filtered_df, names='class', title=f'Launch success rates for {launch_site}')
+        fig = px.pie(filtered_df, names='class', color="class", title=f'Launch success rates for {launch_site}',
+        color_discrete_map={1:'green',
+                            0:'red'}, )
 
     return fig
         
